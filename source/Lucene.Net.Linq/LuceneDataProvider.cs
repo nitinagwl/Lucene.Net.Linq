@@ -109,7 +109,7 @@ namespace Lucene.Net.Linq
             context = new Context(this.directory, transactionLock);
 
             writerIsExternal = externalWriter != null;
-            writer = externalWriter ?? IndexWriter;
+            writer = externalWriter ?? writer;
         }
 
         /// <summary>
