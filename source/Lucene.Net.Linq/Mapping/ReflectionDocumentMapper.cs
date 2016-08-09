@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Lucene.Net.Analysis;
 using Lucene.Net.Documents;
 using Lucene.Net.Linq.Util;
@@ -44,14 +43,14 @@ namespace Lucene.Net.Linq.Mapping
         private ReflectionDocumentMapper(Version version, Analyzer externalAnalyzer, Type type)
             : base(version, externalAnalyzer)
         {
-            var props = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var props = type.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
 
             BuildFieldMap(props);
 
             BuildKeyFieldMap(type, props);
         }
 
-        private void BuildFieldMap(IEnumerable<PropertyInfo> props)
+        private void BuildFieldMap(IEnumerable<System.Reflection.PropertyInfo> props)
         {
             foreach (var p in props)
             {
@@ -70,7 +69,7 @@ namespace Lucene.Net.Linq.Mapping
             }
         }
 
-        private void BuildKeyFieldMap(Type type, IEnumerable<PropertyInfo> props)
+        private void BuildKeyFieldMap(Type type, IEnumerable<System.Reflection.PropertyInfo> props)
         {
             var keyProps = from p in props
                            let a = p.GetCustomAttribute<BaseFieldAttribute>(true)

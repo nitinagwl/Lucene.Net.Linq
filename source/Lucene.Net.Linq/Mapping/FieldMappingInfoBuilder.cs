@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Reflection;
 using Lucene.Net.Analysis;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Linq.Analysis;
@@ -16,12 +15,12 @@ namespace Lucene.Net.Linq.Mapping
     {
         internal const string DefaultDateTimeFormat = "yyyy-MM-ddTHH:mm:ss";
 
-        internal static IFieldMapper<T> Build<T>(PropertyInfo p)
+        internal static IFieldMapper<T> Build<T>(System.Reflection.PropertyInfo p)
         {
             return Build<T>(p, Version.LUCENE_30, null);
         }
 
-        internal static IFieldMapper<T> Build<T>(PropertyInfo p, Version version, Analyzer externalAnalyzer)
+        internal static IFieldMapper<T> Build<T>(System.Reflection.PropertyInfo p, Version version, Analyzer externalAnalyzer)
         {
             var boost = p.GetCustomAttribute<DocumentBoostAttribute>(true);
 
@@ -70,7 +69,7 @@ namespace Lucene.Net.Linq.Mapping
             return false;
         }
 
-        private static ReflectionFieldMapper<T> BuildPrimitive<T>(PropertyInfo p, Type type, FieldAttribute metadata, Version version, Analyzer externalAnalyzer)
+        private static ReflectionFieldMapper<T> BuildPrimitive<T>(System.Reflection.PropertyInfo p, Type type, FieldAttribute metadata, Version version, Analyzer externalAnalyzer)
         {
             var fieldName = (metadata != null ? metadata.Field : null) ?? p.Name;
             var converter = GetConverter(p, type, metadata);
@@ -110,7 +109,7 @@ namespace Lucene.Net.Linq.Mapping
                    metadata.IndexMode == IndexMode.NotAnalyzedNoNorms;
         }
 
-        internal static TypeConverter GetConverter(PropertyInfo p, Type type, FieldAttribute metadata)
+        internal static TypeConverter GetConverter(System.Reflection.PropertyInfo p, Type type, FieldAttribute metadata)
         {
             if (metadata != null && metadata.ConverterInstance != null)
             {
