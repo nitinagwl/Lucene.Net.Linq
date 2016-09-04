@@ -24,7 +24,7 @@ namespace Lucene.Net.Linq.Mapping
             }
 
             // TODO: support collections of IList, ISet, etc.
-            propertySetter(target, values.ToArray (elementType));
+            propertySetter?.Invoke(target, values.ToArray (elementType));
         }
 
         public override void CopyToDocument(T source, Document target)

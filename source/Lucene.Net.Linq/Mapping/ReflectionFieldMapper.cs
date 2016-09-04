@@ -168,7 +168,7 @@ namespace Lucene.Net.Linq.Mapping
             var fieldValue = GetFieldValue(source);
 
             if (fieldValue != null)
-                propertySetter(target, fieldValue);
+                propertySetter?.Invoke(target, fieldValue);
         }
 
         public object GetFieldValue(Document document)
