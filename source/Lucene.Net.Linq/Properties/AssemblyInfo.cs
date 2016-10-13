@@ -17,3 +17,6 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("Lucene.Net.Linq.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 #endif
+
+[assembly: AssemblyVersion("3.6.1.*")]
+[assembly: AssemblyFileVersion("3.6.1")]
