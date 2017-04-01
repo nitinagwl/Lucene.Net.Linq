@@ -445,7 +445,7 @@ namespace Lucene.Net.Linq
             {
                 try
                 {
-                    return !directory.ListAll().Any();
+                    return !directory.ListAll().Any(x => x.Contains("segments.gen"));
                 }
                 catch (NoSuchDirectoryException)
                 {
