@@ -1,4 +1,4 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 using Remotion.Linq;
 using Remotion.Linq.Clauses;
 

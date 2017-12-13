@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -18,5 +18,5 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 #endif
 
-[assembly: AssemblyVersion("3.6.4.*")]
-[assembly: AssemblyFileVersion("3.6.4")]
+[assembly: AssemblyVersion("3.6.5.*")]
+[assembly: AssemblyFileVersion("3.6.5")]
